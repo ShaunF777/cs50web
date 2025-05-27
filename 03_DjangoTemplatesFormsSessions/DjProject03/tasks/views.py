@@ -21,6 +21,17 @@ def index(request): # define a function called index that takes a request as an 
     })
 
 def add(request):
+    if request.method == "POST":
+        # If the request method is POST, it means the form has been submitted
+        form = NewTaskForm(request.POST)
+        if form.is_valid():
+            # If the form is valid, get the cleaned data and append it to the tasks list
+            task = form.cleaned_data["task"]
+            #priority = form.cleaned_data["priority"]
+            tasks.append(task)
+            return render(request, "tasks/add.html", {
+                "form": form  # If the form is not valid, return the form with errors
+            })
     return render(request, "tasks/add.html", {  
         "form": NewTaskForm() # Pass the form to the template context so it can be rendered in the HTML
     })
