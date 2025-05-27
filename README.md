@@ -138,3 +138,11 @@ To get started with this repository and follow along with the projects:
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/yourusername/yourrepository.git
+
+
+Additional Resources
+Course Website: [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/)
+
+YouTube Playlist: [CS50's Web Programming with Python and JavaScript (CS50W)] (https://www.youtube.com/playlist?list=PLhQjrBD2T380xvFSUmToMMzERZ3qB5Ueu)
+
+Community Forums: Leverage CS50's discussion forums and community channels for tips, questions, and collaboration.
