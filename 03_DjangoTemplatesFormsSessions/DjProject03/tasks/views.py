@@ -1,7 +1,12 @@
+from django import forms
 from django.shortcuts import render
 
 tasks = ["eat", "drink", "sleep"] # Global variable that holds a list of tasks
 
+class NewTaskForm(forms.Form): # Djangos ability to create forms
+    task = forms.CharField(label="New Task", max_length=60) # Create a form field called task with a label and max length
+    priority = forms.IntegerField(label="Priority", min_value=1, max_value=10) # Create a form field called priority with a label and min/max values
+    
 # Create your views functions here. 
 def index(request): # define a function called index that takes a request as an argument
     '''Render a template(page) called "tasks/index.html"
