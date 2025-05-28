@@ -3,7 +3,12 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
 
-tasks = [] # Global variable that holds a list of tasks
+''' Using Sessions, instead of a Global tasks variable where everyone sees my tasks
+like this tasks = ["Buy groceries", "Walk the dog", "Finish homework"] 
+In index, i would use a session variable to store the tasks list in the user's session.
+The session variable is a dictionary-like object that allows you to store user data  
+This way each user has their own tasks list, and it is not shared with others.'''
+
 
 class NewTaskForm(forms.Form): # Djangos ability to create forms
     task = forms.CharField(label="New Task", max_length=60) # Create a form field called task with a label and max length
@@ -11,6 +16,8 @@ class NewTaskForm(forms.Form): # Djangos ability to create forms
 
 # Create your views functions here. 
 def index(request): # define a function called index that takes a request as an argument
+    if 'tasks' not in request.session: # Check if the session variable 'tasks' exists
+        request.session['tasks'] = [] # If not, create an empty list in the session variable 'tasks'
     '''Render a template(page) called "tasks/index.html"
     and pass the tasks list to the template context.
     When Django is rendering the template,it will look for 
@@ -19,7 +26,7 @@ def index(request): # define a function called index that takes a request as an 
     tasks is the value or python variable passed into it.
     This allows the template to access the list of tasks and display them.'''
     return render(request, "tasks/index.html", { 
-        "tasks": tasks 
+        "tasks": request.session['tasks']  # Get the tasks from the session variable
     })
 
 def add(request):
