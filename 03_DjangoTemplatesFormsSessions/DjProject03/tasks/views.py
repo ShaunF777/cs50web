@@ -1,11 +1,13 @@
 from django import forms
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
 
-tasks = ["eat", "drink", "sleep"] # Global variable that holds a list of tasks
+tasks = [] # Global variable that holds a list of tasks
 
 class NewTaskForm(forms.Form): # Djangos ability to create forms
     task = forms.CharField(label="New Task", max_length=60) # Create a form field called task with a label and max length
-    priority = forms.IntegerField(label="Priority", min_value=1, max_value=5) # Create a form field called priority with a label and min/max values
+    # priority = forms.IntegerField(label="Priority", min_value=1, max_value=5) # Create a form field called priority with a label and min/max values
 
 # Create your views functions here. 
 def index(request): # define a function called index that takes a request as an argument
@@ -30,9 +32,10 @@ def add(request):
             task = form.cleaned_data["task"]
             #priority = form.cleaned_data["priority"]
             tasks.append(task)
+            return HttpResponseRedirect(reverse('tasks:index')) # Redirect to the index page after adding the task
         else: # If the form is not valid
             return render(request, "tasks/add.html", { 
-                "form": form   # return the form for Server Side error handeling
+                "form": form   # return the form as submitted but with Server Side error handeling
             })
     return render(request, "tasks/add.html", { # Client wants to GET the form
         "form": NewTaskForm() # Pass the form to the template context so it can be rendered in the HTML
