@@ -11,5 +11,6 @@ def index(request):
 def flight(request, flight_id):
     flight = Flight.objects.get(pk=flight_id) # pk(primary key) Get the flight with the given ID
     return render(request, "flights/flight.html", {
-        "flight": flight # Pass the flight object to the template
+        "flight": flight , # Pass the flight object to the template
+        "passengers": flight.passengers.all() # Fetch all passengers associated with the flight
     })
