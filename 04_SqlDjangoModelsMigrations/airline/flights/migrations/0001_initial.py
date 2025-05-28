@@ -10,8 +10,9 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
-    operations = [ '''Here's an instruction to Django, based on models.py, to create a model called Flight.
+    '''Here's an instruction to Django, based on models.py, to create a model called Flight.
     It defines the Flight model that will create the initial database schema for the Flight model'''
+    operations = [ 
         migrations.CreateModel( 
             name='Flight',
             fields=[
