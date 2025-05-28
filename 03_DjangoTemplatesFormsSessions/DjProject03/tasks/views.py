@@ -38,7 +38,7 @@ def add(request):
             # Get the cleaned task data and append it to the tasks list
             task = form.cleaned_data["task"]
             #priority = form.cleaned_data["priority"]
-            tasks.append(task)
+            request.session['tasks'] += [task] # Add the task to the session variable 'tasks'
             return HttpResponseRedirect(reverse('tasks:index')) # Redirect to the index page after adding the task
         else: # If the form is not valid
             return render(request, "tasks/add.html", { 
