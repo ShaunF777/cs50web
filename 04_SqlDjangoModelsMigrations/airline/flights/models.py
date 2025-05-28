@@ -31,3 +31,14 @@ class Airport(models.Model):
     # This class defines an Airport model with two fields: code and city.
     def __str__(self):
         return f"{self.city} ({self.code})"
+    
+class Passenger(models.Model):
+    first_name = models.CharField(max_length=64)
+    last_name = models.CharField(max_length=64)
+    flights = models.ManyToManyField(Flight, blank=True, related_name='passengers')
+    ''' This class defines a Passenger model with fields for first name and last name.
+        It also establishes a many-to-many relationship with the Flight model, allowing passengers to be associated with multiple flights.
+        The related_name 'passengers' allows access to all passengers associated with a specific flight. '''
+    
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
