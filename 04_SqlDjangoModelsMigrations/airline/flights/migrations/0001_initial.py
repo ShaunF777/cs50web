@@ -10,8 +10,9 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
-    operations = [
-        migrations.CreateModel(
+    operations = [ '''Here's an instruction to Django, based on models.py, to create a model called Flight.
+    It defines the Flight model that will create the initial database schema for the Flight model'''
+        migrations.CreateModel( 
             name='Flight',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
