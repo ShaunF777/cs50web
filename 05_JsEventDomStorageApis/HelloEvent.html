@@ -11,12 +11,12 @@
                 counter ++;
                 alert(counter);
             }
-            const header = document.querySelector('h1');
             function changeh1(){
-                if (header === 'Hello!'){
-                    header = 'Goodbuy!';
+                const header = document.querySelector('h1');
+                if (header.innerHTML === 'Hello!'){
+                    header.innerHTML = 'Goodbuy!';
                 } else {
-                    header = 'Hello!';
+                    header.innerHTML = 'Hello!';
                 }
 
             }

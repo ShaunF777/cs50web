@@ -1,0 +1,22 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <title>Constant Object Example</title> 
+    </head> 
+    <body> 
+        <h1 id="myHeader">Hello!</h1>
+        <p>In this example, `header` is a constant that points to the h1 element on the page. 
+            The text content of the header can be changed by pressing the button, 
+            because we are not assigning a new value to the header constant, 
+            but instead changing the `innerHTML` property. </p>
+        <p>The key here is that while you can't reassign a new value to a constant after you've declared it, 
+            if that constant holds an object (like an HTML element selected with querySelector), 
+            you *can* change the properties *of* that object. 
+            You're not assigning a new object to the constant, you're modifying the properties *within* that object.</p>
+        <button id="myButton">Click me</button> 
+        <script> 
+            const header = document.querySelector('#myHeader'); 
+            document.getElementById('myButton').addEventListener('click', function() { header.innerHTML = 'Goodbye!'; }); 
+        </script> 
+    </body> 
+</html>
