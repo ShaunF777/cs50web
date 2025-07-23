@@ -7,7 +7,7 @@
                 alert('Hello World!');
             }
             let counter = 0;
-            function count(){
+            function countA(){
                 counter ++;
                 alert(counter);
             }
@@ -18,18 +18,25 @@
                 } else {
                     header.innerHTML = 'Hello!';
                 }
-
+            }
+            function counterh2(){
+                counter ++;
+                document.querySelector('h2').innerHTML = counter;
             }
         </script>
     </head>
     <body>
         <h1>Hello!</h1>
+        <h2>0</h2>
         <button onclick = hello()>Click here for event to run</button>
         <div>
-            <button onclick = count()>Click here for the count event</button>
+            <button onclick = countA()>Click here for the count event</button>
         </div>
         <div>
-            <button onclick = changeh1()>Click here for the header to change</button>
+            <button onclick = changeh1()>Click here for the Header1 to change</button>
+        </div>
+        <div>
+            <button onclick = counterh2()>Click here for the Header2 to change</button>
         </div>
         
     </body>
