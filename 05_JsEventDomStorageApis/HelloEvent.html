@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello</title>
+        <script>
+            function hello(){
+                alert('Hello World!');
+            }
+            let counter = 0;
+            function count(){
+                counter ++;
+                alert(counter);
+            }
+            const header = document.querySelector('h1');
+            function changeh1(){
+                if (header === 'Hello!'){
+                    header = 'Goodbuy!';
+                } else {
+                    header = 'Hello!';
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Hello!</h1>
+        <button onclick = hello()>Click here for event to run</button>
+        <div>
+            <button onclick = count()>Click here for the count event</button>
+        </div>
+        <div>
+            <button onclick = changeh1()>Click here for the header to change</button>
+        </div>
+        
+    </body>
+</html>
