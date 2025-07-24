@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Hello</title>
+        <title>02DOMEvent</title>
         <script>
             function hello(){
                 alert('Hello World!');
@@ -29,10 +29,22 @@
             //  To minimise the js inside the html, I'll put the js onclick functions
             //  here inside this anonomous function() that will only run once the doc is loaded.
             document.addEventListener('DOMContentLoaded', function(){
+                /* Many events can be chosen from
+                document.getElementById('counterh2Button').onclick
+                document.getElementById('counterh2Button').onauxclick
+                document.getElementById('counterh2Button').ondblclick
+                document.getElementById('counterh2Button').onscroll
+                document.getElementById('counterh2Button').onscrollend
+                 */   
                 document.getElementById('helloButton').addEventListener('click', hello);
-                document.getElementById('countAButton').onclick = countA;
+                document.getElementById('countAButton').onclick = countA; // onclick is short for addEventListener('click'
                 document.getElementById('changeh1Button').addEventListener('click', changeh1);
                 document.getElementById('counterh2Button').onclick = counterh2;
+
+                document.querySelector('#GreetSubmit').onsubmit = function() {
+                    const name = document.querySelector('#Greet').value;
+                    alert(`Hello ${name}`);
+                };
 
             });
         </script>
@@ -49,6 +61,12 @@
         </div>
         <div>
             <button id="counterh2Button">Click here for the Header2 to change</button>
+        </div>
+        <div>
+            <form id="GreetSubmit">
+                <input autofocus id="Greet" placeholder="Insert your name" type="text">
+                <input type="submit">
+            </form>
         </div>
         
     </body>
